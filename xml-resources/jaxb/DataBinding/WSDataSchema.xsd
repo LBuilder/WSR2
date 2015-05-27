@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:element name="data">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="activities" type="ActivitiesT" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="fields" type="FieldsT" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="groups" type="Groups" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+		
+			<xs:complexType name="ActivitiesT">
+				<xs:sequence>
+					<xs:element name="activity" type="ActivityT" minOccurs="2" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+				<xs:complexType name="ActivityT">
+					<xs:sequence>
+						<xs:element name="name" type="xs:string"/>
+						<xs:element name="imagePath" type="xs:string"/>
+						<xs:element name="text" type="xs:string"/>
+                                                <xs:element name="sound" type="SoundT" maxOccurs="1"/>
+						<xs:element name="option" type="OptionT" minOccurs="1" maxOccurs="8"/>
+					</xs:sequence>
+				</xs:complexType>	
+					
+				<xs:complexType name="OptionT">
+					<xs:sequence>
+						<xs:element name="isField" type="xs:boolean"/>
+						<xs:element name="pivot_x" type="xs:double"/>
+						<xs:element name="pivot_y" type="xs:double"/>
+						<xs:element name="setField" type="xs:string"/>
+						<xs:element name="buttonName" type="xs:string"/>
+						<xs:element name="delay" type="xs:string"/>
+						<xs:element name="hideDelay" type="xs:boolean"/>
+						<xs:element name="showValue" type="xs:boolean"/>
+						<xs:element name="reference" type="RefT" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+				
+				<xs:complexType name="RefT">
+					<xs:sequence>
+						<xs:element name="name" type="xs:string"/>
+						<xs:element name="probability" type="xs:double"/>
+					</xs:sequence>
+				</xs:complexType>
+                                
+                                <xs:complexType name="SoundT">
+                                    <xs:sequence>
+                                        <xs:element name="value" type="xs:string"/>
+                                        <xs:element name="period" type="xs:int"/>
+                                        <xs:element name="repeats" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+				
+			<xs:complexType name="FieldsT">
+				<xs:sequence>
+					<xs:element name="field" type="DistributionFieldT" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+				<xs:complexType name="DistributionFieldT">
+					<xs:sequence>
+						<xs:element name="name" type="xs:string"/>
+						<xs:element name="pivot_start" type="PointT"/>
+						<xs:element name="point" type="PointT" minOccurs="2" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+				
+				<xs:complexType name="PointT">
+					<xs:sequence>
+						<xs:element name="x" type="xs:double"/>
+						<xs:element name="y" type="xs:double"/>
+						<xs:element name="act" type="ActT" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+				
+				<xs:complexType name="ActT">
+					<xs:sequence>
+						<xs:element name="name" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+				
+			<xs:complexType name="Groups">
+				<xs:sequence>
+					<xs:element name="group" type="Group" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+				<xs:complexType name="Group">
+					<xs:sequence>
+						<xs:element name="name" type="xs:string"/>
+						<xs:element name="values" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/D:/Desktop/Activities.xml" uri="xml-resources/jaxb/Activities/Activities.xml.xsd"/>
+    <system systemId="file:/D:/Desktop/DistributionField.xml" uri="xml-resources/jaxb/DistributionField/DistributionField.xml.xsd"/>
+    <system systemId="file:/D:/Documents/NetBeansProjects/WSR2/../../../Desktop/WSDataSchema.xsd" uri="xml-resources/jaxb/DataBinding/WSDataSchema.xsd"/>
+    <system systemId="file:/C:/Users/s124392/Dropbox/TPR%20----%20REMOVE/WSDataSchema.xsd" uri="xml-resources/jaxb/DataBinding/WSDataSchema.xsd"/>
+</catalog>

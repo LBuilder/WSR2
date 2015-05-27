@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="fields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="field" type="DistributionFieldT" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="DistributionFieldT">
+					<xs:sequence>
+						<xs:element name="name" type="xs:string"/>
+						<xs:element name="pivot_start" type="PointT"/>
+						<xs:element name="point" type="PointT" minOccurs="2" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+				
+				<xs:complexType name="PointT">
+					<xs:sequence>
+						<xs:element name="x" type="xs:double"/>
+						<xs:element name="y" type="xs:double"/>
+						<xs:element name="act" type="ActT" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+				
+				<xs:complexType name="ActT">
+					<xs:sequence>
+						<xs:element name="name" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+</xs:schema>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="activities">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="activity" type="ActivityT" minOccurs="2" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="ActivityT">
+					<xs:sequence>
+						<xs:element name="name" type="xs:string"/>
+						<xs:element name="imagePath" type="xs:string"/>
+						<xs:element name="text" type="xs:string"/>
+                                                <xs:element name="sound" type="SoundT"/>
+						<xs:element name="option" type="OptionT" minOccurs="1" maxOccurs="8"/>
+					</xs:sequence>
+				</xs:complexType>	
+					
+				<xs:complexType name="OptionT">
+					<xs:sequence>
+						<xs:element name="isField" type="xs:boolean"/>
+						<xs:element name="pivot_x" type="xs:double"/>
+						<xs:element name="pivot_y" type="xs:double"/>
+						<xs:element name="setField" type="xs:string"/>
+						<xs:element name="buttonName" type="xs:string"/>
+						<xs:element name="delay" type="xs:string"/>
+						<xs:element name="hideDelay" type="xs:boolean"/>
+						<xs:element name="showValue" type="xs:boolean"/>
+						<xs:element name="reference" type="RefT" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+				
+				<xs:complexType name="RefT">
+					<xs:sequence>
+						<xs:element name="name" type="xs:string"/>
+						<xs:element name="probability" type="xs:double"/>
+					</xs:sequence>
+				</xs:complexType>
+                                
+                                <xs:complexType name="SoundT">
+                                    <xs:sequence>
+                                        <xs:element name="value" type="xs:string"/>
+                                        <xs:element name="period" type="xs:int"/>
+                                        <xs:element name="repeats" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+</xs:schema>
